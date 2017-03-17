@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+    
+    
+<head>
+  <meta charset="UTF-8">
+  <title>Child Monitor Admin Portal</title>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <!-- Firebase -->
+  <!-- ***********************************************************************************************************************
+       * (DEVELOPER): Paste the initialization snippet from: Firebase Console > Overview > Add Firebase to your web app. *
+       *********************************************************************************************************************** -->
+    
+<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDp38ZcH-fdSVvdWroIj4_zg9a54dd2wYM",
+    authDomain: "day-care-monitoring-system.firebaseapp.com",
+    databaseURL: "https://day-care-monitoring-system.firebaseio.com",
+    storageBucket: "day-care-monitoring-system.appspot.com",
+    messagingSenderId: "78183757626"
+  };
+  firebase.initializeApp(config);
+</script>
+</head>
+    
+    
+    
+    
+    
+    
+    
+    
+<script type="text/javascript">
+    /**
+     * Handles the sign in button press.
+     */
+    function signUserOut() {
+        // [START signout]
+        firebase.auth().signOut();
+        document.getElementById('sign-in-status').textContent = 'Signed out';
+        // [END signout]
+    }
+    
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function toggleMenu() {
+    document.getElementById("menu-status").textContent = 'in toggleMenu()';
+    if (document.getElementById("mySidebar").style.display === 'block') {
+        document.getElementById("menu-status").textContent = 'closed menu';
+        document.getElementById("mySidebar").style.display = 'none';
+    } else {
+        document.getElementById("menu-status").textContent = 'opened menu';
+        document.getElementById("mySidebar").style.display = 'block';
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    document.getElementById("menu-status").textContent = 'closed menu';
+    document.getElementById("mySidebar").style.display = 'none';
+    overlayBg.style.display = 'none';
+}
+</script>
+    
+    
+    
+    
+    
+
+<body class="w3-light-grey">
+<!-- Top container -->
+<div class="w3-container w3-top w3-black w3-large w3-padding" style="z-index:4">
+<button class="w3-button w3-padding-0 w3-black w3-hover-none w3-hover-text-light-grey" onclick="toggleMenu();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-display-middle"><h3>Child Monitor Admin Portal</h3></span>
+  <span class="w3-right"> (Insert Logo)</span>
+</div>
+
+<!-- Sidebar/menu -->
+
+<nav class="w3-sidebar w3-white w3-animate-left" style="z-index:3;width:300px;display:block;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s8 w3-bar">
+        Firebase status: <span id="sign-in-status"> Signed-In</span><br><br>
+      <span>Welcome, <strong>Mike</strong></span><br>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Dashboard</h5>
+  </div>
+  <div class="w3-bar-block">
+<!--    <a href="javascript:void(0);" class="w3-bar-item w3-button w3-padding" onclick="w3_close();" title="close menu" ref="nofollow"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>-->
+    <a href="#children" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Children</a>
+    <a href="#parents" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Parents</a>
+    <a href="#employees" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Employees</a>
+    <a href="#classes" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Classes</a>
+    <a href="#settings" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a>
+    <a href="javascript:void(0);" class="w3-bar-item w3-button w3-padding" onclick="signUserOut();" ref="nofollow"> Sign Out</a>
+  </div>
+</nav>
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h3><i class="fa fa-dashboard"></i> Children</h3>
+      Menu status: <span id="menu-status">Open</span><br><br>
+  </header>
+
+  
+
+  <!-- End page content -->
+</div>
+
+</body>
+</html>
